@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09B55790-06D1-4848-9346-A048874C3773}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowUsageCounter", "SpecFlowUsageCounter\SpecFlowUsageCounter.csproj", "{A2C394DC-2855-4AE8-909F-0873EB67A631}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingAnalyzer", "BindingAnalyzer\BindingAnalyzer.csproj", "{96CDA007-C256-4588-919C-5C8815AB06AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2C394DC-2855-4AE8-909F-0873EB67A631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C394DC-2855-4AE8-909F-0873EB67A631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C394DC-2855-4AE8-909F-0873EB67A631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C394DC-2855-4AE8-909F-0873EB67A631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96CDA007-C256-4588-919C-5C8815AB06AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96CDA007-C256-4588-919C-5C8815AB06AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96CDA007-C256-4588-919C-5C8815AB06AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96CDA007-C256-4588-919C-5C8815AB06AC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6019C202-BD18-4BD9-8C90-0B63EF380A46}
+	EndGlobalSection
+EndGlobal
