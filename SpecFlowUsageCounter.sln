@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31402.337
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09B55790-06D1-4848-9346-A048874C3773}"
 	ProjectSection(SolutionItems) = preProject
@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowUsageCounter", "SpecFlowUsageCounter\SpecFlowUsageCounter.csproj", "{A2C394DC-2855-4AE8-909F-0873EB67A631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowUsageCounter", "SpecFlowUsageCounter\SpecFlowUsageCounter.csproj", "{A2C394DC-2855-4AE8-909F-0873EB67A631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingAnalyzer", "BindingAnalyzer\BindingAnalyzer.csproj", "{96CDA007-C256-4588-919C-5C8815AB06AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BindingAnalyzer", "BindingAnalyzer\BindingAnalyzer.csproj", "{96CDA007-C256-4588-919C-5C8815AB06AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

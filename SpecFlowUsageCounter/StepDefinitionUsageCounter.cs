@@ -6,37 +6,25 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text.RegularExpressions;
 
-    /// <summary>
-    /// Counts how often a Given/When/Then/StepDefinition attribute is used in feature files.
-    /// </summary>
-    internal class GivenWhenThenCounter
+    public class StepDefinitionUsageCounter
     {
-        /// <summary>
-        /// The attributes found in the code.
-        /// </summary>
-        public IEnumerable<DiscoveredAttribute> DiscoveredAttributes { get; set; }
 
         /// <summary>
-        /// The full paths to the feature files to count usage of the attributes in <see cref="DiscoveredAttributes"/> in.
+        /// Result of the analysis. Contains the usage count per step definition.
         /// </summary>
-        public IEnumerable<string> FeatureFiles { get; set; }
-
-        /// <summary>
-        /// Result of the analysis. Contains the usage count per attribute.
-        /// </summary>
-        public IDictionary<DiscoveredAttribute, int> BindingsUsage { get; private set; }
-
+        public IDictionary<SpecFlowAttribute, int> BindingsUsage { get; private set; }
+        
         /// <summary>
         /// Performs the analysis.
         /// </summary>
         /// <returns>this</returns>
-        public GivenWhenThenCounter Analyze()
+        public StepDefinitionUsageCounter Analyze(IEnumerable<string> codeFiles, IEnumerable<string> FeatureFiles )
         {
-            if (null == DiscoveredAttributes) throw new InvalidOperationException($"{nameof(DiscoveredAttributes)} is null");
-            if (null == FeatureFiles) throw new InvalidOperationException($"{nameof(FeatureFiles)} is null");
+            if (null == codeFiles) throw new ArgumentNullException(nameof(codeFiles));
+            if (null == FeatureFiles) throw new ArgumentNullException(nameof(FeatureFiles));
 
+            DiscoveredAttributes = SpecFlowAttributeFinder.FindSpecFlowAttributes(codeFiles);
             BindingsUsage = DiscoveredAttributes.ToDictionary(x => x, x => 0);
             FeatureFiles.ForEach(f => AnalyzeFeatureFile(f));
             return this;
@@ -45,6 +33,7 @@
         #region privates
 
         private string LastStepKeyWord = string.Empty;
+        private IEnumerable<SpecFlowAttribute> DiscoveredAttributes { get; set; }
 
         private void AnalyzeFeatureFile(string FullPath)
         {
@@ -66,14 +55,14 @@
         {
             if (step.Keyword.Trim().ToLower() != "and")
             {
-                LastStepKeyWord = step.Keyword.Trim() + "Attribute";
+                LastStepKeyWord = step.Keyword.Trim();
             }
             string StepText = step.Text.Trim();
 
             DiscoveredAttributes
-                .Where(attr => attr.Keyword == LastStepKeyWord || attr.Keyword == "StepDefinitionAttribute")
-                .Where(attr => Regex.IsMatch(StepText, $"^{attr.Text}$"))
-                .ForEach(attr => { BindingsUsage[attr] = BindingsUsage[attr] + 1; })
+                  .Where(attr => attr.Keyword == LastStepKeyWord || attr.Keyword == "StepDefinition")
+                  .Where(attr => attr.Re.IsMatch(StepText))
+                  .ForEach(attr => BindingsUsage[attr] = BindingsUsage[attr] + 1)
            ;
         }
         #endregion
