@@ -9,6 +9,7 @@
 
     class Program
     {
+        protected Program() { }
         static void Main(string[] args)
         {
             var root = args.First();

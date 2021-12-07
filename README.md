@@ -1,14 +1,15 @@
-# SpecFlowUsageCounter 
+# BindingAnalyzerApp
 
-Counts where Given/When/Then/StepDefinitions are used in .feature files. Usage:
+Reports which SpecFlow step definition are not used ny any .feature files. Supports Given, When, Then and StepDefinition attributes.
+
+Usage:
 
 ```ps1
-$ .\BindingAnalyzer.exe C:\Repos\TestAutomation\VisualStudioSolution.sln
+$ .\BindingAnalyzerApp.exe C:\Repos\TestAutomation\
 ```
 Example output
 ```json
-{
-  "UnusedAttributes": [
+ [
     {
       "File": "C:\\Repos\\TestAutomation\\Bindings\\File1.cs",
       "Line": 58,
@@ -23,3 +24,26 @@ Example output
     },
  ]
  ```
+
+# BranchComparerApp
+Reports which new unused step definitions are caused by source branch as compared to target branch.
+
+Usage:
+ ```ps1
+$ .\BranchComparerApp.exe `
+    --repo C:\Repos\TestAutomation\ `
+    --source test `
+    --target main
+```
+Example output
+```json
+[
+  {
+    "Keyword": "Given",
+    "Text": "I am unused",
+    "File": "C:\\Repos\\TestAutomation\\Bindings\\File1.cs",
+    "Line": 54
+  }
+]
+```
+

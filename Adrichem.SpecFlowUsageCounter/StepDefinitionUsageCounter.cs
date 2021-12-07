@@ -11,21 +11,21 @@
     {
 
         /// <summary>
-        /// Result of the analysis. Contains the usage count per step definition.
+        /// Result of the analysis.
         /// </summary>
-        public IDictionary<SpecFlowAttribute, int> BindingsUsage { get; private set; }
+        public UsageCounts BindingsUsage { get; private set; }
         
         /// <summary>
         /// Performs the analysis.
         /// </summary>
         /// <returns>this</returns>
-        public StepDefinitionUsageCounter Analyze(IEnumerable<string> codeFiles, IEnumerable<string> FeatureFiles )
+        public StepDefinitionUsageCounter Analyze(IEnumerable<string> codeFiles, IEnumerable<string> FeatureFiles)
         {
             if (null == codeFiles) throw new ArgumentNullException(nameof(codeFiles));
             if (null == FeatureFiles) throw new ArgumentNullException(nameof(FeatureFiles));
 
             DiscoveredAttributes = SpecFlowAttributeFinder.FindSpecFlowAttributes(codeFiles);
-            BindingsUsage = DiscoveredAttributes.ToDictionary(x => x, x => 0);
+            BindingsUsage = UsageCounts.FromDictionary(DiscoveredAttributes.ToDictionary(x => x, x => 0));
             FeatureFiles.ForEach(f => AnalyzeFeatureFile(f));
             return this;
         }

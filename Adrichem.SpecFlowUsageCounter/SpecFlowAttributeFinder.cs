@@ -1,13 +1,13 @@
-﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace Adrichem.SpecFlowUsageCounter
+﻿namespace Adrichem.SpecFlowUsageCounter
 {
-    internal class SpecFlowAttributeFinder
+    using Microsoft.CodeAnalysis;
+    using Microsoft.CodeAnalysis.CSharp;
+    using Microsoft.CodeAnalysis.CSharp.Syntax;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+
+    internal static class SpecFlowAttributeFinder
     {
         public static IEnumerable<SpecFlowAttribute> FindSpecFlowAttributes(IEnumerable<string> codeFiles)
         {
@@ -51,7 +51,7 @@ namespace Adrichem.SpecFlowUsageCounter
                 ;
                 if (AttrName != "Given" && AttrName != "When" && AttrName != "Then" && AttrName != "StepDefinition") return null;
                 if (attr.ArgumentList?.Arguments.Count != 1) return null;
-                if ( !(attr.ArgumentList?.Arguments.First().Expression is LiteralExpressionSyntax)) return null;
+                if (attr.ArgumentList?.Arguments.First().Expression is not LiteralExpressionSyntax) return null;
 
                 var RegEx = attr
                     .ArgumentList
