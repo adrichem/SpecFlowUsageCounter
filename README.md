@@ -1,4 +1,4 @@
-# SpecFlowUsageCounter
+# SpecFlowUsageCounter 
 
 Counts where Given/When/Then/StepDefinitions are used in .feature files. Usage:
 
