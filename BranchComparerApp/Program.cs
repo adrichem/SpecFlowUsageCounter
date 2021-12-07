@@ -41,7 +41,6 @@
             var t = AnalysisResult.TargetAnalysis.UnusedDefinitions();
             var newUnusedBindings = s.Except(t, new SpecFlowAttributeEqualityComparer());
             Console.Out.WriteLine(JsonConvert.SerializeObject(newUnusedBindings, Formatting.Indented));
-            return;
         }
     }
 }

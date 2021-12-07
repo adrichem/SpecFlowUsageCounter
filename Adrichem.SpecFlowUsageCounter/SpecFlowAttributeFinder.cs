@@ -7,7 +7,7 @@
     using System.IO;
     using System.Linq;
 
-    internal class SpecFlowAttributeFinder
+    internal static class SpecFlowAttributeFinder
     {
         public static IEnumerable<SpecFlowAttribute> FindSpecFlowAttributes(IEnumerable<string> codeFiles)
         {
