@@ -1,8 +1,6 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Adrichem.SpecFlowUsageCounter
+﻿namespace Adrichem.SpecFlowUsageCounter
 {
-    /// <inheritdoc cref="ISpecFlowAttribute"/>
+    using System.Text.RegularExpressions;
     public class SpecFlowAttribute
     {
         private string _Text;
