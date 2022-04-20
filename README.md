@@ -1,6 +1,6 @@
 # BindingAnalyzerApp
 
-Reports which SpecFlow step definition are not used ny any .feature files. Supports Given, When, Then and StepDefinition attributes.
+Reports which SpecFlow step definitions are not used by any .feature file. Supports Given, When, Then and StepDefinition attributes.
 
 Usage:
 
