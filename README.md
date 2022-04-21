@@ -13,13 +13,13 @@ $ .\BindingAnalyzerApp.exe `
     --exclude-code *.feature.cs project2/**/ignored.cs
 ```
 
-| Argument        | Default | Description |
-|-----------------|---------------------------|
-| root            | Current working directory | The directory to search for feature files and code |
-| features        | **/*.feature              | Glob patterns describing which feature files to include in analysis|
-| code            | **/*.cs                   | Glob patterns describing which .cs files to include in analysis|
+| Argument        | Default                   | Description                                                          |
+|-----------------|---------------------------|----------------------------------------------------------------------|
+| root            | Current working directory | The directory to search for feature files and code                   |
+| features        | **/*.feature              | Glob patterns describing which feature files to include in analysis  |
+| code            | **/*.cs                   | Glob patterns describing which .cs files to include in analysis      |
 | exclude-features| none                      | Glob patterns describing which feature files to exclude from analysis|
-| exclude-code    | **/*.feature.cs           | Glob patterns describing which cs files to exclude from analysis|
+| exclude-code    | **/*.feature.cs           | Glob patterns describing which cs files to exclude from analysis     |
 
 Example output
 ```json
